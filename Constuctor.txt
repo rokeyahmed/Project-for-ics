@@ -1,0 +1,63 @@
+
+
+#include <iostream>
+using namespace std;
+
+class Rectangle
+{
+    int length, width;
+
+public:
+    Rectangle()
+    {
+        cout<<"In Rectangle Default Constructor"<<endl;
+        length=0;
+        width=0;
+    }
+    Rectangle(int l, int w)
+    {
+        cout<<"In Rectangle Parameterized Constructor"<<endl;
+        length=l;
+        width=w;
+    }
+    Rectangle(double a, int b)
+    {
+         length =a;
+         width= b;
+    }
+    ~Rectangle()
+    {
+        cout<<"In Rectangle Destructor"<<endl;
+    }
+    void area()
+    {
+        cout<<"Area = "<<length*width<<endl;
+    }
+};
+
+class Circle
+{
+    int radius;
+public:
+    Circle()
+    {
+        cout<<"Circle Default Constructor"<<endl;
+    }
+    ~Circle()
+    {
+        cout<<"Circle Destructor"<<endl;
+    }
+};
+
+int main()
+{
+    Rectangle r1(5.8,9),r2;
+    Circle c1;
+    int a=6;
+    int b=8;
+    cout<<a*b<<endl;
+    r1.area();
+    r2.area();
+    cout<<"End of main"<<endl;
+}
+
