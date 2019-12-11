@@ -1,0 +1,32 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+int main()
+{
+      ifstream readFile("Heap1.txt");
+      ofstream myFile("output.txt");
+      string name, hobby, printOutput;
+      int i,j;
+
+
+     cout<<"Enter your name: ";
+     getline(cin, name);
+     myFile<<name<<endl;
+     
+     cin.ignore();
+     
+     cout<<"Enter your hobby: ";
+     getline(cin,hobby);
+     myFile<<hobby<<endl;
+
+
+    cout<<"Reading From File..."<<endl;
+
+    while(!readFile.eof())
+    {
+        getline(readFile, printOutput);
+        cout<<printOutput<<endl;
+    }
+  }
+
