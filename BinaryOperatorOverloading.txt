@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std ;
+
+class Test
+{
+public:
+    int num ;
+    Test() ;
+    Test( int n ) ;
+    Test operator+(Test t) ;
+    void show() ;
+};
+
+    Test::Test()
+    {
+        num = 0 ;
+    }
+    Test::Test(int n)
+    {
+        num = n ;
+    }
+    Test Test::operator+(Test t)
+    {
+        Test temp ;
+        temp.num = num + t.num ;
+        return temp ;
+    }
+    void Test::show()
+    {
+
+        cout << num << endl;
+    }
+
+int main()
+{
+    Test t1(5) ;
+    Test t2(10) ;
+    Test t3 ;
+    t3 = t1 + t2 ;
+    t3.show() ;
+    return 0 ;
+}
