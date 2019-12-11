@@ -1,0 +1,77 @@
+#include<iostream>
+using namespace std;
+
+class Shape
+{
+protected:
+    int height ;
+    int width ;
+public:
+    void setHeight(int height) ;
+    int getHeight() ;
+    void setWidth(int width) ;
+    int getWidth() ;
+    virtual void calculateArea() ;
+
+};
+void Shape::calculateArea()
+{
+    cout << "In Shape class" <<endl;
+}
+void Shape::setHeight(int height)
+{
+    this->height = height ;
+}
+int Shape::getHeight()
+{
+    return height ;
+}
+void Shape::setWidth(int width)
+{
+    this->width = width ;
+}
+int Shape::getWidth()
+{
+    return width ;
+}
+
+class Rectangle : public Shape
+{
+public:
+    void calculateArea();
+};
+void Rectangle::calculateArea()
+{
+    cout << "In Rectangle Area: " << endl;
+    cout << height * width << endl; ;
+}
+
+
+int main()
+{
+    Shape *s ;
+    Rectangle rec ;
+    rec.setHeight(5) ;
+    rec.setWidth(6) ;
+    s = &rec ;
+    s->calculateArea() ;
+//    Shape *s ;
+//    Rectangle r ;
+//    s = &r ;
+//    //s->calculateArea() ;
+//    r.setHeight(6) ;
+//    r.setWidth(7) ;
+//    //s = &r ;
+//    s->calculateArea();
+//
+//    Rectangle rec ;
+//    rec.setHeight(7) ;
+//    rec.setWidth(5) ;
+//    rec.calculateArea() ;
+//
+//    Shape s1 ;
+//    s1.setHeight(5) ;
+//    s1.setWidth(4) ;
+//    s1.calculateArea();
+    return 0 ;
+}
