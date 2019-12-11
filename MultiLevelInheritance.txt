@@ -1,0 +1,91 @@
+
+#include <iostream>
+using namespace std;
+
+class Shape
+{
+protected:
+    int length, width;
+public:
+    Shape()
+    {
+        cout<<"Shape Default Constructor"<<endl;
+    }
+    Shape(int l, int w)
+    {
+        cout<<"Shape Parameterized Constructor"<<endl;
+        length=l;
+        width=w;
+    }
+    void setValues(int l, int w)
+    {
+        length= l;
+        width=w;
+    }
+    void getValues()
+    {
+        cout<<"Length = "<<length<<endl;
+        cout<<"Width = "<<width<<endl;
+    }
+    virtual void area()
+    {
+        cout<<"Shape area function"<<endl;
+    }
+    ~Shape()
+    {
+        cout<<"Shape Destructor"<<endl;
+    }
+};
+class Rectangle:public Shape
+{
+public:
+    Rectangle()
+    {
+        cout<<"Rectangle Constructor"<<endl;
+    }
+    void area()
+    {
+        cout<<"Area of Rectangle= "<<length*width<<endl;
+    }
+    ~Rectangle()
+    {
+        cout<<"Rectangle Destructor"<<endl;
+    }
+};
+class Rhombus: public Rectangle
+{
+public:
+    Rhombus()
+    {
+        cout<<"Rhombus Default Constructor"<<endl;
+    }
+    ~Rhombus()
+    {
+        cout<<"Rhombus Destructor"<<endl;
+    }
+    void area()
+    {
+        cout<<"Area of Rhombus= "<<length*length<<endl;
+    }
+};
+
+int main()
+{
+    Rhombus rb1, rb2;
+    Rectangle rec1, rec2;
+    Shape *sh1, sh2;
+
+    sh1= &rb1;
+
+    sh1->area();
+
+    rb1.setValues(5,7);
+    rb1.getValues();
+    //rb1.area();
+
+    rec1.setValues(4,6);
+    rec1.getValues();
+    //rec1.area();
+}
+
+
