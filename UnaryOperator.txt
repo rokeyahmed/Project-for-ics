@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std ;
+
+class Test
+{
+private:
+    int feet;
+    int inch ;
+public:
+    Test( int f , int i) ;
+    void operator-();
+    void showValue() ;
+};
+Test::Test( int f , int i)
+{
+    feet = f ;
+    inch = i ;
+}
+void Test::operator-()
+{
+    feet-- ;
+    inch-- ;
+}
+void Test::showValue()
+{
+    cout << feet << "'" << inch << endl;
+}
+
+int main()
+{
+    Test t(5,6) ;
+    -t ;
+    t.showValue() ;
+    return 0 ;
+}
