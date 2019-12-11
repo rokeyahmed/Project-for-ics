@@ -1,0 +1,39 @@
+######include<iostream>
+using namespace std;
+
+template<typename T, typename M>
+void summation(T a, M b)
+{
+    cout<<a+b<<endl;
+}
+template<typename T, typename M>
+void subtraction(T a, M b)
+{
+    cout<<a-b<<endl;
+}
+
+template<typename T, typename M>
+void multiplication (T a , M b)
+{
+    cout <<a*b<<endl;
+}
+template<typename T, typename M>
+void division (T a , M b)
+{
+    cout << float(a/b)<<endl;
+}
+
+int main()
+{
+   summation(2,5.2);
+   subtraction(7,9);
+   multiplication(2,8);
+   division(10,2);
+}
+
+
+
+
+
+
+
