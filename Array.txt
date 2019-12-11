@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    float number[200];
+    int i,n;
+
+    cout<<"Enter number of values: ";
+    cin>>n;
+
+    cout<<"Enter "<<n<<" float values: ";
+
+    for(i=0;i<n;i++)
+    {
+        cin>>number[i];
+    }
+
+    for(i=0;i<n;i++)
+    {
+        cout<<number[i]<<" ";
+    }
+
+}
