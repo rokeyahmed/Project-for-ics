@@ -1,0 +1,218 @@
+###########Compile Time##########
+
+#include <iostream>
+using namespace std;
+
+class Vehicle
+{
+protected:
+    int fuel;
+    float mileage;
+    string color;
+public:
+    Vehicle()
+    {
+        cout<<"Vehicle Default Constructor"<<endl;
+    }
+    Vehicle(int f, float m, string c)
+    {
+        cout<<"Vehicle Parameterized Constructor"<<endl;
+        fuel=f;
+        mileage=m;
+        color=c;
+    }
+    void setValues(int f, float m, string c)
+    {
+        fuel=f;
+        mileage=m;
+        color=c;
+    }
+    void getValues()
+    {
+        cout<<"Fuel ="<<fuel<<endl;
+        cout<<"Mileage = "<<mileage<<endl;
+        cout<<"Color = "<<color<<endl;
+    }
+    void history()
+    {
+        cout<<"Vehicle class history"<<endl;
+    }
+    ~Vehicle()
+    {
+        cout<<"Vehicle Destructor"<<endl;
+    }
+};
+
+class Truck:public Vehicle
+{
+public:
+    Truck()
+    {
+        cout<<"Truck Default Constructor"<<endl;
+    }
+    ~Truck()
+    {
+        cout<<"Truck Destructor"<<endl;
+    }
+    void history()
+    {
+        cout<<"Truck Class history"<<endl;
+    }
+};
+
+class Car:public Truck
+{
+public:
+    Car()
+    {
+        cout<<"Car Default Constructor"<<endl;
+    }
+
+    Car(int f, float m, string c)
+    {
+        cout<<"Car Parameterized Constructor"<<endl;
+        fuel=f;
+        mileage=m;
+        color=c;
+    }
+
+    ~Car()
+    {
+        cout<<"Car Destructor"<<endl;
+    }
+    void history()
+    {
+        cout<<"Car class history"<<endl;
+    }
+    void print()
+    {
+        cout<<"Car Print Function"<<endl;
+        getValues();
+    }
+};
+
+int main()
+{
+    Vehicle v1(20,12.7,"Red");
+    v1.getValues();
+    Truck t1;
+    t1.setValues(11,76.4,"White");
+    t1.getValues();
+    Car c1(14,26,"Yellow");
+
+    cout<<endl;
+    v1.history();
+    t1.history();
+    c1.history();
+    cout<<endl;
+}
+
+###########Run Time##########
+
+#include <iostream>
+using namespace std;
+
+class Vehicle
+{
+protected:
+    int fuel;
+    float mileage;
+    string color;
+public:
+    Vehicle()
+    {
+        cout<<"Vehicle Default Constructor"<<endl;
+    }
+    Vehicle(int f, float m, string c)
+    {
+        cout<<"Vehicle Parameterized Constructor"<<endl;
+        fuel=f;
+        mileage=m;
+        color=c;
+    }
+    void setValues(int f, float m, string c)
+    {
+        fuel=f;
+        mileage=m;
+        color=c;
+    }
+    void getValues()
+    {
+        cout<<"Fuel ="<<fuel<<endl;
+        cout<<"Mileage = "<<mileage<<endl;
+        cout<<"Color = "<<color<<endl;
+    }
+    virtual void history()
+    {
+        cout<<"Vehicle class history"<<endl;
+    }
+    ~Vehicle()
+    {
+        cout<<"Vehicle Destructor"<<endl;
+    }
+};
+
+class Truck:public Vehicle
+{
+public:
+    Truck()
+    {
+        cout<<"Truck Default Constructor"<<endl;
+    }
+    ~Truck()
+    {
+        cout<<"Truck Destructor"<<endl;
+    }
+    void history()
+    {
+        cout<<"Truck Class history"<<endl;
+    }
+};
+
+class Car:public Truck
+{
+public:
+    Car()
+    {
+        cout<<"Car Default Constructor"<<endl;
+    }
+
+    Car(int f, float m, string c)
+    {
+        cout<<"Car Parameterized Constructor"<<endl;
+        fuel=f;
+        mileage=m;
+        color=c;
+    }
+
+    ~Car()
+    {
+        cout<<"Car Destructor"<<endl;
+    }
+    void history()
+    {
+        cout<<"Car class history"<<endl;
+    }
+    void print()
+    {
+        cout<<"Car Print Function"<<endl;
+        getValues();
+    }
+};
+
+int main()
+{
+    Vehicle v1(20,12.7,"Red");
+    Truck t1;
+    Car c1(14,26,"Yellow");
+
+    cout<<endl;
+    Vehicle *v2;
+    v2=&c1;
+    v2->history();
+    cout<<endl;
+
+    v1.getValues();
+    t1.setValues(11,76.4,"White");
+    t1.getValues();
+}
